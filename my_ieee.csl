@@ -68,7 +68,7 @@
     <category field="generic-base"/>
 
     <summary>
-      IEEE style based on the 2023 guidelines, customized to remove DOI and URL output and use Word-controlled bibliography indentation.
+      IEEE style based on the 2023 guidelines, customized to remove DOI and URL output and use a tab character after the bracketed citation number in the bibliography.
     </summary>
 
     <updated>2026-08-10T00:00:00+00:00</updated>
@@ -612,6 +612,14 @@
 
   <!-- Citation -->
 
+  <!--
+    collapse="citation-number" turns consecutive numbers into an
+    en-dash range, e.g. [1]-[3]. This only works when the references
+    are inserted as ONE merged citation in Mendeley Cite (select all
+    references at once in the citation picker). Separately inserted
+    citation fields cannot be collapsed across fields by the style.
+  -->
+
   <citation collapse="citation-number">
 
     <sort>
@@ -649,15 +657,13 @@
       <!-- Citation Number -->
 
       <!--
-        Two em spaces are inserted after [1].
-        This replaces the tab character because
-        Mendeley Cite does not reliably preserve
-        &#9; in bibliography output.
+        A literal tab character follows the bracketed number,
+        e.g. "[1]<TAB>Author, ...".
       -->
 
       <text variable="citation-number"
             prefix="["
-            suffix="]&#8195;&#8195;"/>
+            suffix="]&#9;"/>
 
 
       <!-- Author(s) -->
