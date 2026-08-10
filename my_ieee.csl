@@ -330,15 +330,6 @@
     </choose>
   </macro>
 
-
-  <!--
-    Access information intentionally disabled.
-    This removes DOI, URL, and access-date output.
-  -->
-
-  <macro name="access"/>
-
-
   <macro name="page">
     <choose>
 
