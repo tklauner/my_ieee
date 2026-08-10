@@ -8,7 +8,10 @@
     <title>IEEE Custom - No DOI or URL</title>
     <title-short>IEEE Custom</title-short>
     <id>https://github.com/tklauner/my_ieee</id>
-    <link href="https://github.com/tklauner/my_ieee" rel="self"/>
+
+    <link href="https://github.com/tklauner/my_ieee"
+          rel="self"/>
+
     <link href="https://journals.ieeeauthorcenter.ieee.org/your-role-in-article-production/ieee-editorial-style-manual/"
           rel="documentation"/>
 
@@ -65,7 +68,7 @@
     <category field="generic-base"/>
 
     <summary>
-      IEEE style based on the 2023 guidelines, customized to remove DOI and URL output.
+      IEEE style based on the 2023 guidelines, customized to remove DOI and URL output and use Word-controlled bibliography indentation.
     </summary>
 
     <updated>2026-08-10T00:00:00+00:00</updated>
@@ -75,109 +78,194 @@
     </rights>
   </info>
 
+
   <!-- Locale -->
 
   <locale xml:lang="en">
+
     <date form="text">
-      <date-part name="month" form="short" suffix=" "/>
-      <date-part name="day" form="numeric-leading-zeros" suffix=", "/>
+      <date-part name="month"
+                 form="short"
+                 suffix=" "/>
+
+      <date-part name="day"
+                 form="numeric-leading-zeros"
+                 suffix=", "/>
+
       <date-part name="year"/>
     </date>
 
     <terms>
-      <term name="chapter" form="short">ch.</term>
-      <term name="chapter-number" form="short">ch.</term>
-      <term name="presented at">presented at the</term>
-      <term name="available at">available</term>
+
+      <term name="chapter"
+            form="short">ch.</term>
+
+      <term name="chapter-number"
+            form="short">ch.</term>
+
+      <term name="presented at">
+        presented at the
+      </term>
+
+      <term name="available at">
+        available
+      </term>
 
       <!-- Always use three-letter abbreviations for months -->
-      <term name="month-06" form="short">Jun.</term>
-      <term name="month-07" form="short">Jul.</term>
-      <term name="month-09" form="short">Sep.</term>
+
+      <term name="month-06"
+            form="short">Jun.</term>
+
+      <term name="month-07"
+            form="short">Jul.</term>
+
+      <term name="month-09"
+            form="short">Sep.</term>
+
     </terms>
+
   </locale>
 
 
   <!-- Macros -->
 
+
   <macro name="status">
+
     <choose>
-      <if variable="page issue volume" match="none">
+
+      <if variable="page issue volume"
+          match="none">
+
         <text variable="status"
               text-case="capitalize-first"
               suffix=""
               font-weight="bold"/>
+
       </if>
+
     </choose>
+
   </macro>
 
 
   <macro name="edition">
+
     <choose>
+
       <if type="bill book chapter graphic legal_case legislation motion_picture paper-conference report song"
           match="any">
 
         <choose>
+
           <if is-numeric="edition">
+
             <group delimiter=" ">
-              <number variable="edition" form="ordinal"/>
-              <text term="edition" form="short"/>
+
+              <number variable="edition"
+                      form="ordinal"/>
+
+              <text term="edition"
+                    form="short"/>
+
             </group>
+
           </if>
 
           <else>
+
             <text variable="edition"
                   text-case="capitalize-first"
                   suffix="."/>
+
           </else>
+
         </choose>
 
       </if>
+
     </choose>
+
   </macro>
 
 
   <macro name="issued">
+
     <choose>
 
-      <if type="article-journal report" match="any">
+      <if type="article-journal report"
+          match="any">
+
         <date variable="issued">
-          <date-part name="month" form="short" suffix=" "/>
-          <date-part name="year" form="long"/>
+
+          <date-part name="month"
+                     form="short"
+                     suffix=" "/>
+
+          <date-part name="year"
+                     form="long"/>
+
         </date>
+
       </if>
+
 
       <else-if type="bill book chapter graphic legal_case legislation song thesis"
                 match="any">
+
         <date variable="issued">
-          <date-part name="year" form="long"/>
+
+          <date-part name="year"
+                     form="long"/>
+
         </date>
+
       </else-if>
 
-      <else-if type="paper-conference" match="any">
+
+      <else-if type="paper-conference"
+                match="any">
+
         <date variable="issued">
-          <date-part name="month" form="short"/>
-          <date-part name="year" prefix=" "/>
+
+          <date-part name="month"
+                     form="short"/>
+
+          <date-part name="year"
+                     prefix=" "/>
+
         </date>
+
       </else-if>
 
-      <else-if type="motion_picture" match="any">
+
+      <else-if type="motion_picture"
+                match="any">
+
         <date variable="issued"
               form="text"
               prefix="("
               suffix=")"/>
+
       </else-if>
 
+
       <else>
-        <date variable="issued" form="text"/>
+
+        <date variable="issued"
+              form="text"/>
+
       </else>
 
     </choose>
+
   </macro>
 
 
   <macro name="author">
+
     <names variable="author">
+
       <name and="text"
             et-al-min="7"
             et-al-use-first="1"
@@ -190,16 +278,24 @@
       <et-al font-style="italic"/>
 
       <substitute>
+
         <names variable="editor"/>
+
         <names variable="translator"/>
+
         <text macro="director"/>
+
       </substitute>
+
     </names>
+
   </macro>
 
 
   <macro name="editor">
+
     <names variable="editor">
+
       <name initialize-with=". "
             delimiter=", "
             and="text"/>
@@ -207,49 +303,74 @@
       <label form="short"
              prefix=", "
              text-case="capitalize-first"/>
+
     </names>
+
   </macro>
 
 
   <macro name="director">
+
     <names variable="director">
+
       <name and="text"
             et-al-min="7"
             et-al-use-first="1"
             initialize-with=". "/>
 
       <et-al font-style="italic"/>
+
     </names>
+
   </macro>
 
 
   <macro name="locators">
+
     <group delimiter=", ">
 
       <text macro="edition"/>
 
       <group delimiter=" ">
-        <text term="volume" form="short"/>
-        <number variable="volume" form="numeric"/>
+
+        <text term="volume"
+              form="short"/>
+
+        <number variable="volume"
+                form="numeric"/>
+
       </group>
 
+
       <group delimiter=" ">
-        <number variable="number-of-volumes" form="numeric"/>
+
+        <number variable="number-of-volumes"
+                form="numeric"/>
+
         <text term="volume"
               form="short"
               plural="true"/>
+
       </group>
 
+
       <group delimiter=" ">
-        <text term="issue" form="short"/>
-        <number variable="issue" form="numeric"/>
+
+        <text term="issue"
+              form="short"/>
+
+        <number variable="issue"
+                form="numeric"/>
+
       </group>
 
     </group>
+
   </macro>
 
 
   <macro name="title">
+
     <choose>
 
       <if type="bill book graphic legal_case legislation motion_picture song standard software"
@@ -257,68 +378,93 @@
 
         <text variable="title"
               font-style="italic"/>
+
       </if>
 
+
       <else>
+
         <text variable="title"
               quotes="true"/>
+
       </else>
 
     </choose>
+
   </macro>
 
 
   <macro name="publisher">
+
     <choose>
 
       <if type="bill book chapter graphic legal_case legislation motion_picture paper-conference song"
           match="any">
 
         <group delimiter=": ">
+
           <text variable="publisher-place"/>
+
           <text variable="publisher"/>
+
         </group>
+
       </if>
+
 
       <else>
 
         <group delimiter=", ">
+
           <text variable="publisher"/>
+
           <text variable="publisher-place"/>
+
         </group>
 
       </else>
 
     </choose>
+
   </macro>
 
 
   <macro name="event">
+
     <choose>
 
       <!-- Published Conference Paper -->
 
-      <if type="paper-conference speech" match="any">
+      <if type="paper-conference speech"
+          match="any">
 
         <choose>
 
-          <if variable="container-title" match="any">
+          <if variable="container-title"
+              match="any">
 
             <group delimiter=" ">
+
               <text term="in"/>
+
               <text variable="container-title"
                     font-style="italic"/>
+
             </group>
 
           </if>
+
 
           <!-- Unpublished Conference Paper -->
 
           <else>
 
             <group delimiter=" ">
+
               <text term="presented at"/>
+
               <text variable="event"/>
+
             </group>
 
           </else>
@@ -328,9 +474,12 @@
       </if>
 
     </choose>
+
   </macro>
 
+
   <macro name="page">
+
     <choose>
 
       <if type="article-journal"
@@ -338,39 +487,57 @@
           match="all">
 
         <group delimiter=" ">
+
           <text value="Art."/>
-          <text term="issue" form="short"/>
+
+          <text term="issue"
+                form="short"/>
+
           <text variable="number"/>
+
         </group>
 
       </if>
 
+
       <else>
 
         <group delimiter=" ">
-          <label variable="page" form="short"/>
+
+          <label variable="page"
+                 form="short"/>
+
           <text variable="page"/>
+
         </group>
 
       </else>
 
     </choose>
+
   </macro>
 
 
   <macro name="citation-locator">
+
     <group delimiter=" ">
 
       <choose>
 
         <if locator="page">
-          <label variable="locator" form="short"/>
+
+          <label variable="locator"
+                 form="short"/>
+
         </if>
 
+
         <else>
+
           <label variable="locator"
                  form="short"
                  text-case="capitalize-first"/>
+
         </else>
 
       </choose>
@@ -378,40 +545,53 @@
       <text variable="locator"/>
 
     </group>
+
   </macro>
 
 
   <macro name="geographic-location">
-    <group delimiter=", " suffix=".">
+
+    <group delimiter=", "
+           suffix=".">
 
       <choose>
 
         <if variable="publisher-place">
+
           <text variable="publisher-place"
                 text-case="title"/>
+
         </if>
 
+
         <else-if variable="event-place">
+
           <text variable="event-place"
                 text-case="title"/>
+
         </else-if>
 
       </choose>
 
     </group>
+
   </macro>
 
 
   <!-- Series -->
 
   <macro name="collection">
+
     <choose>
 
-      <if variable="collection-title" match="any">
+      <if variable="collection-title"
+          match="any">
 
-        <text term="in" suffix=" "/>
+        <text term="in"
+              suffix=" "/>
 
-        <group delimiter=", " suffix=". ">
+        <group delimiter=", "
+               suffix=". ">
 
           <text variable="collection-title"/>
 
@@ -426,6 +606,7 @@
       </if>
 
     </choose>
+
   </macro>
 
 
@@ -434,29 +615,29 @@
   <citation collapse="citation-number">
 
     <sort>
+
       <key variable="citation-number"/>
+
     </sort>
 
-<citation collapse="citation-number">
+    <layout prefix="["
+            suffix="]"
+            delimiter=", ">
 
-  <sort>
-    <key variable="citation-number"/>
-  </sort>
+      <text variable="citation-number"/>
 
-  <layout prefix="[" suffix="]" delimiter=", ">
+    </layout>
 
-    <text variable="citation-number"/>
-
-  </layout>
-
-</citation>
+  </citation>
 
 
   <!-- Bibliography -->
 
   <!--
     second-field-align is intentionally NOT used.
-    hanging-indent is disabled so Word can control indentation.
+
+    hanging-indent is disabled so that Word can control
+    the paragraph indentation.
   -->
 
   <bibliography entry-spacing="0"
@@ -464,20 +645,31 @@
 
     <layout>
 
+
       <!-- Citation Number -->
 
-<text variable="citation-number"
-      prefix="["
-      suffix="]&#8195;&#8195;"/>
+      <!--
+        Two em spaces are inserted after [1].
+        This replaces the tab character because
+        Mendeley Cite does not reliably preserve
+        &#9; in bibliography output.
+      -->
+
+      <text variable="citation-number"
+            prefix="["
+            suffix="]&#8195;&#8195;"/>
+
 
       <!-- Author(s) -->
 
       <text macro="author"
             suffix=", "/>
 
+
       <!-- Rest of Citation -->
 
       <choose>
+
 
         <!-- Journal Article -->
 
@@ -501,8 +693,7 @@
 
           </group>
 
-          <!-- Always terminate with a period.
-               DOI and URL are deliberately omitted. -->
+          <!-- DOI and URL deliberately omitted -->
 
           <text value="."/>
 
