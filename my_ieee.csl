@@ -437,21 +437,19 @@
       <key variable="citation-number"/>
     </sort>
 
-    <layout delimiter=", ">
+<citation collapse="citation-number">
 
-      <group prefix="["
-             suffix="]"
-             delimiter=", ">
+  <sort>
+    <key variable="citation-number"/>
+  </sort>
 
-        <text variable="citation-number"/>
+  <layout prefix="[" suffix="]" delimiter=", ">
 
-        <text macro="citation-locator"/>
+    <text variable="citation-number"/>
 
-      </group>
+  </layout>
 
-    </layout>
-
-  </citation>
+</citation>
 
 
   <!-- Bibliography -->
