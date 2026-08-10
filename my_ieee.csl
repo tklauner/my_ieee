@@ -466,9 +466,9 @@
 
       <!-- Citation Number -->
 
-       <text variable="citation-number"
-             prefix="["
-             suffix="]&#9;"/>
+<text variable="citation-number"
+      prefix="["
+      suffix="]&#8195;&#8195;"/>
 
       <!-- Author(s) -->
 
