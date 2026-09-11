@@ -611,32 +611,17 @@
 
 
   <!-- Citation -->
+ <citation>
+  <sort>
+    <key variable="citation-number"/>
+  </sort>
 
-  <!--
-    collapse="citation-number" turns consecutive numbers into an
-    en-dash range, e.g. [1]-[3]. This only works when the references
-    are inserted as ONE merged citation in Mendeley Cite (select all
-    references at once in the citation picker). Separately inserted
-    citation fields cannot be collapsed across fields by the style.
-  -->
-
-  <citation collapse="citation-number">
-
-    <sort>
-
-      <key variable="citation-number"/>
-
-    </sort>
-
-    <layout prefix="["
-            suffix="]"
-            delimiter=", ">
-
-      <text variable="citation-number"/>
-
-    </layout>
-
-  </citation>
+  <layout delimiter=", ">
+    <text variable="citation-number"
+          prefix="["
+          suffix="]"/>
+  </layout>
+</citation>
 
 
   <!-- Bibliography -->
